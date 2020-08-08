@@ -33,7 +33,7 @@ TARGET_SUPPORTS_GOOGLE_RECORDER := false
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := potter
-PRODUCT_NAME := aosp_potter
+PRODUCT_NAME := radeon_potter
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
 

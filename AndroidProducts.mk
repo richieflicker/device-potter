@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_potter.mk
+    $(LOCAL_DIR)/radeon_potter.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_potter-user \
-    aosp_potter-userdebug \
-    aosp_potter-eng
+    radeon_potter-user \
+    radeon_potter-userdebug \
+    radeon_potter-eng
