@@ -46,3 +46,8 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="Moto G5 Plus"
+# DerpFest Customs	
+DERP_BUILDTYPE := CI
+BUILD_DATE := $(shell date +"%Y%m%d-%H%M%S")
+IS_PHONE := true
+DERP_BUILD_ZIP_TYPE := VANILLA	

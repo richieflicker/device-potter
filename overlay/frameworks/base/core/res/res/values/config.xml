@@ -414,11 +414,7 @@
     <!-- Flag specifying whether VT is available on device -->
     <bool name="config_device_vt_available">true</bool>
 
-    <!-- ImsService package name to bind to by default, if config_dynamic_bind_ims is true -->
-    <string name="config_ims_package">org.codeaurora.ims</string>
 
-    <!-- Flag specifying whether or not IMS will use the ImsResolver dynamically -->
-    <bool name="config_dynamic_bind_ims">true</bool>
 
     <!-- Boolean indicating if current platform supports BLE peripheral mode -->
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
@@ -438,10 +434,12 @@
         <item>"/system/framework/services.jar"</item>
         <item>"/system/framework/arm64/boot.oat"</item>
         <item>"/system/framework/arm64/boot-core-libart.oat"</item>
-        <item>"/apex/com.android.runtime/javalib/core-oj.jar"</item>
-        <item>"/apex/com.android.runtime/javalib/core-libart.jar"</item>
+        <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
+        <item>"/apex/com.android.art/javalib/core-libart.jar"</item>
         <item>"/apex/com.android.media/javalib/updatable-media.jar"</item>
         <item>"/system/product/priv-app/SystemUI/SystemUI.apk"</item>
+
+        <item>"/system_ext/priv-app/SystemUI/oat/arm64/SystemUI.odex"</item>
         <item>"/system/lib64/libsurfaceflinger.so"</item>
     </string-array>
 
@@ -463,11 +461,15 @@
     <integer name="config_proximityCheckTimeout">3000</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
 
-    <!-- Paths to the libraries that contain device specific key handlers -->
-   <string name="config_deviceKeyHandlerLib" translatable="false">/system/priv-app/MotoActions/MotoActions.apk</string>
-    <!-- Names of the key handler classes -->
-    <string name="config_deviceKeyHandlerClass" translatable="false">com.moto.actions.KeyHandler</string>
+       <!-- Paths to the libraries that contain device specific key handlers -->
+    <string name="config_deviceKeyHandlerLib" translatable="false">/system/priv-app/MotoActions/MotoActions.apk</string>	    <string-array name="config_deviceKeyHandlerLibs" translatable="false">
+        <item>/system/priv-app/MotoActions/MotoActions.apk</item>
+    </string-array>
 
+
+    <!-- Names of the key handler classes -->	    <string-array name="config_deviceKeyHandlerClasses" translatable="false">
+    <string name="config_deviceKeyHandlerClass" translatable="false">com.moto.actions.KeyHandler</string>	        <item>com.moto.actions.KeyHandler</item>
+    </string-array>
     <!-- Screen pinning exit mode
         0 - Navigation bar (default behavior)
         1 - Long press back button

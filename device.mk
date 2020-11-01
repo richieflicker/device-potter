@@ -69,8 +69,8 @@ PRODUCT_AAPT_CONFIG := normal
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@4.0-impl \
-    android.hardware.audio.effect@4.0-impl \
+    android.hardware.audio@6.0-impl \
+    android.hardware.audio.effect@6.0-impl \
     android.hardware.audio@2.0-service \
     android.hardware.broadcastradio@1.0-impl \
     audio.primary.msm8953 \
@@ -124,7 +124,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0_vendor \
     libjustshoot_shim \
     libgui_vendor \
-    Snap
+    Camera2
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/msm8953_mot_potter_camera.xml:system/etc/camera/msm8953_mot_potter_camera.xml \
@@ -153,12 +153,15 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     libdisplayconfig \
     libqdMetaData.system \
+    libqdMetaData.vendor \
     libgpu_tonemapper \
     vendor.display.config@1.0 \
     libhwbinder \
     libhwbinder.vendor \
     libhidltransport \
-    libhidltransport.vendor
+    libhidltransport.vendor \
+    libjson \
+    libjson.vendor
 
 
 PRODUCT_PACKAGES += \
@@ -185,7 +188,8 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.2-service.clearkey
+    android.hardware.drm@1.2-service.widevine \
+    android.hardware.drm@1.3-service.clearkey
 
 # Ebtables
 PRODUCT_PACKAGES += \
@@ -210,8 +214,10 @@ PRODUCT_PACKAGES += \
 
 # GPS / Location
 PRODUCT_PACKAGES += \
+    libcutils_shim \
     libgpu_mapper_shim \
-    libqsap_shim
+    libqsap_shim \
+    libshims_imsrcsd
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
@@ -303,6 +309,9 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
 
+# MotoActions
+PRODUCT_PACKAGES += \
+    MotoActions
 
 
 # Netutils
@@ -329,7 +338,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service
+    android.hardware.power-service-qti
 
 # Public Libraries
 PRODUCT_COPY_FILES += \
@@ -430,8 +439,12 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
 
-PRODUCT_PACKAGES += \
-    vndk-sp
+# PRODUCT_PACKAGES += \
+#     vndk-sp
+
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-full.so \
+    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-lite.so
 
 # Wifi
 PRODUCT_PACKAGES += \

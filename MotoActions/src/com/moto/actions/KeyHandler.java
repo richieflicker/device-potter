@@ -433,7 +433,7 @@ public class KeyHandler implements DeviceKeyHandler {
         return node;
     }
 
-    public boolean handleKeyEvent(KeyEvent event) {
+    public KeyEvent handleKeyEvent(KeyEvent event) {
         int scanCode = event.getScanCode();
 
         if (DEBUG) {
@@ -458,12 +458,12 @@ public class KeyHandler implements DeviceKeyHandler {
 
         // We only want ACTION_UP event
         if (event.getAction() != KeyEvent.ACTION_UP) {
-            return true;
+            return null;
         }
         
         if (isFPScanCode){
             if (fpGesturePending) {
-                return false;
+                return event;
             } else {
                 resetFPGestureDelay();
                 fpGesturePending = true;
@@ -478,7 +478,7 @@ public class KeyHandler implements DeviceKeyHandler {
         if (isFPScanCode) {
             if ((!isFPGestureEnabled) || (!isScreenOn && !isFPGestureEnabledOnScreenOff)) {
                 resetDoubleTapOnFP();
-                return false;
+                return event;
             }
             if (!isScreenOn && isFPGestureEnabledOnScreenOff) {
                 processFPScreenOffScancode(scanCode);
@@ -488,42 +488,8 @@ public class KeyHandler implements DeviceKeyHandler {
         } else if (isScreenOffGesturesScanCode) {
             processScreenOffScancode(scanCode);
         }
-                        return true;
-            }
+                
 
-        public boolean canHandleKeyEvent(KeyEvent event) {
-        int scanCode = event.getScanCode();
-
-        if (DEBUG) {
-            Log.d(TAG, "DEBUG: action=" + event.getAction()
-                        + ", flags=" + event.getFlags()
-                            + ", keyCode=" + event.getKeyCode()
-                + ", scanCode=" + event.getScanCode()
-                + ", metaState=" + event.getMetaState()
-                + ", repeatCount=" + event.getRepeatCount());
-        }
-
-        boolean isFPScanCode = ArrayUtils.contains(sSupportedFPGestures, scanCode);
-                if (!isFPScanCode) {
-            return false;
-        }
-
-        return true;
-        }
-
-        public boolean isCameraLaunchEvent(KeyEvent event) {
-            return false;
-        }
-
-        public boolean isWakeEvent(KeyEvent event){
-        return false;
-        }
-
-        public boolean isDisabledKeyEvent(KeyEvent event) {
-        return false;
-        }
-
-        public Intent isActivityLaunchEvent(KeyEvent event) {
                 return null;
     }
 
@@ -669,7 +635,7 @@ public class KeyHandler implements DeviceKeyHandler {
         mSearchManagerService = ISearchManager.Stub.asInterface(ServiceManager.getService(Context.SEARCH_SERVICE));
         if (mSearchManagerService != null) {
             try {
-                mSearchManagerService.launchAssist(new Bundle());
+                mSearchManagerService.launchAssist(mContext.getUserId(), new Bundle());
             } catch (RemoteException e) {
             }
         }
