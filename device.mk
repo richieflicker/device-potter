@@ -153,6 +153,10 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     libdisplayconfig \
     libqdMetaData.system \
+    libgpu_tonemapper \
+    libhwbinder \
+    libhwbinder.vendor
+
 
 PRODUCT_PACKAGES += \
     vendor.display.color@1.0-service \
