@@ -18,7 +18,7 @@
 
 //#define LOG_TAG "Sensors"
 
-#include <hardware/sensors.h>
+// #include <hardware/sensors.h>
 #include <fcntl.h>
 #include <errno.h>
 #include <dirent.h>

@@ -24,8 +24,8 @@
 
 #include <linux/input.h>
 
-#include <hardware/hardware.h>
-#include <hardware/sensors.h>
+// #include <hardware/hardware.h>
+// #include <hardware/sensors.h>
 
 
 __BEGIN_DECLS
