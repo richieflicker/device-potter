@@ -18,7 +18,7 @@
 $(call inherit-product, device/motorola/potter/full_potter.mk)
 
 # Inherit some common DU stuff.
-$(call inherit-product, vendor/derp/config/common_full_phone.mk)
+$(call inherit-product, vendor/awaken/config/common.mk)
 
 # PixelGApps
 # $(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
@@ -36,7 +36,7 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := potter
-PRODUCT_NAME := derp_potter
+PRODUCT_NAME := awaken_potter
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := Motorola
 PRODUCT_RELEASE_NAME := potter

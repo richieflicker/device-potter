@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/derp_potter.mk
+    $(LOCAL_DIR)/awaken_potter.mk
 
 COMMON_LUNCH_CHOICES := \
-    derp_potter-user \
-    derp_potter-userdebug \
-    derp_potter-eng
+    awaken_potter-user \
+    awaken_potter-userdebug \
+    awaken_potter-eng
